@@ -12,3 +12,8 @@
 已实现
 ### 创建服务器启动系统服务
 已实现
+
+## 使用方法
+```bash
+wget https://raw.githubusercontent.com/yingyi666/satisfactory/main/satisfactory.sh && ./satisfactory.sh
+```
