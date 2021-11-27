@@ -1,10 +1,22 @@
+#!/bin/bash
 #幸福工厂服务器搭建脚本
 
+########
+#root权限检测,，无则退出脚本
+root_need() {
+    if [[ $EUID -ne 0 ]]; then
+        echo "错误：脚本必须以root权限运行!" 1>&2
+        exit 1
+    fi
+}
+
+
+########
 ########
 #系统检测
 ########
 
-
+root_need
 
 ########
 #配置检测
@@ -17,7 +29,8 @@ virMem=`free | grep Swap | awk '{print $2}'`
 mem=`expr $virMem + $pyhMem`
 # 获取cpu总核数
 cpuNum=`grep -c "model name" /proc/cpuinfo`
-
+#获取本机ip地址
+ip=`ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
 # 对内存大小进行判断
 if [ $mem -gt 6291456 ] 
 then
@@ -49,10 +62,15 @@ then
     if [ $tmpNum == 1 ]
     then
         echo "接下来将会进行大量文件读写来创建swap分区，服务器响应可能会有卡顿！"
+        #使用dd命令创建名为swapfile 的swap交换文件
         dd  if=/dev/zero  of=/var/swapfile  bs=1024  count=4194304 
+        #对交换文件格式化并转换为swap分区
         mkswap  /var/swapfile
+        #添加权限
         chmod -R 0600 /var/swapfile
+        #挂载并激活分区
         swapon   /var/swapfile
+        #修改 fstab 配置，设置开机自动挂载该分区
         echo  "/var/swapfile   swap  swap  defaults  0  0" >>  /etc/fstab
         echo "虚拟内存配置完成！"
     fi
@@ -138,7 +156,8 @@ systemctl enable satisfactory.service
 systemctl start satisfactory.service
 echo "安装完成！"
 echo "安装目录为："$fileDir
-echo "可以使用明林进行操作："
+echo "可以使用命令进行操作："
+echo -e "本机ip为：""\033[;32m"$ip"\033[0m"
 echo -e "\033[;32m启动游戏：systemctl start satisfactory.service\033[0m"
 echo -e "\033[;32m重启游戏：systemctl restart satisfactory.service\033[0m"
 echo -e "\033[;32m关闭游戏：systemctl stop satisfactory.service\033[0m"
