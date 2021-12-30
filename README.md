@@ -1,3 +1,6 @@
+
+## 有问题直接在issue里面提！！！！
+
 ### 一键安装幸福工厂脚本
 
 本脚本为幸福工厂（satisfactory）私人服务器（ea版本）一键部署脚本！
@@ -28,38 +31,38 @@ centos7:
 
 ```bash
 #国外服务器使用
-wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c7.sh && ./satisfactory_c7.sh
+wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c7.sh &&chmod +x satisfactory_c7.sh&& ./satisfactory_c7.sh
 #国内服务器使用
-wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c7.sh && ./satisfactory_c7.sh
+wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c7.sh &&chmod +x satisfactory_c7.sh&& ./satisfactory_c7.sh
 ```
 
 centos8:
 
 ```bash
 #国外服务器使用
-wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c8.sh && ./satisfactory_c8.sh
+wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c8.sh &&chmod +x satisfactory_c8.sh&& ./satisfactory_c8.sh
 #国内服务器使用
-wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c8.sh && ./satisfactory_c8.sh
+wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c8.sh &&chmod +x satisfactory_c8.sh&& ./satisfactory_c8.sh
 ```
 
 ubuntu / debian:
 ```bash
 #国外服务器使用
-wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_d.sh && ./satisfactory_d.sh
+wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_d.sh &&chmod +x satisfactory_d.sh&& ./satisfactory_d.sh
 #国内服务器使用
-wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_d.sh && ./satisfactory_d.sh
+wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_d.sh &&chmod +x satisfactory_d.sh&& ./satisfactory_d.sh
 ```
 
 命令：
 
 ```bash
-service satisfactory start
+systemctl start satisfactory
 #开启游戏服务
-service satisfactory restart
-#重启游戏服务
-service satisfactory stop
+systemctl restart satisfactory
+#重启游戏服务，用于进行游戏更新
+systemctl stop satisfactory
 #终止游戏服务
-service satisfactory status
+systemctl status satisfactory
 #查看游戏服务状态
 ```
 
@@ -76,3 +79,10 @@ steamcmd和satisfactory存放位置：`/home/steam/`
 #### 游戏更新
 
 本脚本已经内置了游戏服务在每晚4点重新启动，并进行检测更新！
+
+如果想要手动更新游戏版本，只需要对游戏服务进行重启即可!
+
+```bash
+systemctl restart satisfactory
+#重启游戏服务，用于进行游戏更新
+```
