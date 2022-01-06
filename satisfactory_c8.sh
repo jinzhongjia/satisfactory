@@ -111,7 +111,7 @@ echo "steamCMD安装完成！"
 echo "接下来将安装幸福工厂，3秒后开始安装"
 sleep 3s
 
-yum -y install SDL2.i686 SDL2.x86_64 -y
+yum install glibc.i686 libstdc++.i686 libcurl.i686 screen -y
 
 su - steam -c "~/steamcmd/steamcmd.sh +force_install_dir ~/SatisfactoryDedicatedServer +login anonymous +app_update 1690800 validate +quit"
 
