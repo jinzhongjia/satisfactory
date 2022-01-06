@@ -88,3 +88,15 @@ steamcmd和satisfactory存放位置：`/home/steam/`
 systemctl restart satisfactory
 #重启游戏服务，用于进行游戏更新
 ```
+
+#### 官方文档
+
+官网：(www.satisfactorygame.com)[https://www.satisfactorygame.com/]
+
+交互式地图：(satisfactory-calculator.com/en/interactive-map/)[https://satisfactory-calculator.com/en/interactive-map/]
+
+MOD平台：(ficsit.app)[https://ficsit.app/]
+
+官方问题反馈论坛：(questions.satisfactorygame.com)[https://questions.satisfactorygame.com/]
+
+官方维基：(satisfactory.gamepedia.com/Satisfactory_Wiki)[https://satisfactory.gamepedia.com/Satisfactory_Wiki]
