@@ -6,7 +6,14 @@
 
 本脚本为幸福工厂（satisfactory）私人服务器（ea版本）一键部署脚本！
 
-目前已经实现在centos7.9、centos8、debian10上完美运行，ubuntu未测试（理论可以完美运行）！
+以下linux系统以经过测试：
+
+* centos7.9
+* centos8
+* debian10
+* ubuntu18.04
+
+理论可以在所有linux系统运行！
 
 ***
 
