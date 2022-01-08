@@ -37,7 +37,7 @@ then
     tmpNum=`free -h | grep Mem | awk '{print $2}'`
     echo -e "\033[;32m物理内存大小："$tmpNum"\033[0m"
     tmpNum=`free -h | grep Swap | awk '{print $2}'`
-    echo -e "\033[;32m物理内存大小："$tmpNum"\033[0m"
+    echo -e "\033[;32m虚拟内存大小："$tmpNum"\033[0m"
 else
     echo -e "\033[;31m注意：内存不够用！请使用虚拟内存或者升级更高配置的服务器！\033[0m"
 fi
