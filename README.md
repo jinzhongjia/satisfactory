@@ -102,7 +102,7 @@ bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfa
 ##### 版本二
 
 注意：该版本会将信息输出到`/home/satisfactory_output.log`，如果你未使用过linux或者只是想安装一个游戏服务器来玩玩，请使用该版本！！！
-
+中间可能出现安装过程中控制台无输出，即无响应情况，这是正常的，请耐心等待安装完成！
 想要获取输出日志，可以使用以下命令：
 
 ```bash
