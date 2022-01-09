@@ -62,6 +62,10 @@
 
 #### 安装过程
 
+##### 版本一
+
+注意：该版本会将信息直接输出到控制台，如果你对linux使用有所了解，使用该版本更容易安装
+
 centos7:
 
 ```bash
@@ -88,6 +92,44 @@ bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/main/satisfactory
 #国内服务器使用
 bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_d.sh)
 ```
+
+##### 版本二
+
+注意：该版本会将信息输出到`/home/satisfactory_output.log`，如果你未使用过linux或者只是想安装一个游戏服务器来玩玩，请使用该版本！！！
+
+想要获取输出日志，可以使用以下命令：
+
+```bash
+cat /home/satisfactory_output.log
+```
+
+centos7:
+
+```bash
+#国外服务器使用
+bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/dev/satisfactory_c7.sh)
+#国内服务器使用
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@dev/satisfactory_c7.sh)
+```
+
+centos8:
+
+```bash
+#国外服务器使用
+bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/dev/satisfactory_c8.sh)
+#国内服务器使用
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@dev/satisfactory_c8.sh)
+```
+
+ubuntu / debian:
+
+```bash
+#国外服务器使用
+bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/dev/satisfactory_d.sh)
+#国内服务器使用
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@dev/satisfactory_d.sh)
+```
+
 
 #### 操作命令
 
