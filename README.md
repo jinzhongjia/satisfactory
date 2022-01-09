@@ -12,6 +12,7 @@
 * centos8
 * debian10
 * ubuntu18.04
+* Ubuntu 20.04
 
 理论可以在所有linux系统运行！
 
