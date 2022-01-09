@@ -62,27 +62,27 @@ centos7:
 
 ```bash
 #国外服务器使用
-wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c7.sh &&chmod +x satisfactory_c7.sh&& ./satisfactory_c7.sh
+bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c7.sh)
 #国内服务器使用
-wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c7.sh &&chmod +x satisfactory_c7.sh&& ./satisfactory_c7.sh
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c7.sh)
 ```
 
 centos8:
 
 ```bash
 #国外服务器使用
-wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c8.sh &&chmod +x satisfactory_c8.sh&& ./satisfactory_c8.sh
+bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c8.sh)
 #国内服务器使用
-wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c8.sh &&chmod +x satisfactory_c8.sh&& ./satisfactory_c8.sh
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c8.sh)
 ```
 
 ubuntu / debian:
 
 ```bash
 #国外服务器使用
-wget https://github.com/yingyi666/satisfactory/raw/main/satisfactory_d.sh &&chmod +x satisfactory_d.sh&& ./satisfactory_d.sh
+bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/main/satisfactory_d.sh)
 #国内服务器使用
-wget https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_d.sh &&chmod +x satisfactory_d.sh&& ./satisfactory_d.sh
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_d.sh)
 ```
 
 #### 操作命令
