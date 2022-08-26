@@ -44,11 +44,10 @@ cpuNum=$(grep -c "model name" /proc/cpuinfo)
 ip=$(curl -s ifconfig.me)
 # 对内存大小进行判断
 if [ "$mem" -gt 6291456 ]; then
-    echo -e "\033[;32m物理内存大小：$tmpNum\033[0m"
-    echo -e "\033[;32m虚拟内存大小：$tmpNum\033[0m"
+    echo -e "\033[;32m物理内存大小：$pyhMem\033[0m"
+    echo -e "\033[;32m虚拟内存大小：$virMem\033[0m"
 else
     echo -e "\033[;31m注意：内存不够用！请使用虚拟内存或者升级更高配置的服务器！\033[0m"
-    exit 0
 fi
 
 # 对内核数进行判断
@@ -87,11 +86,12 @@ echo "接下来将安装steamCMD以及游戏所需环境，3秒后开始安装"
 sleep 3s
 
 #安装steamCMD以及游戏所需环境
-apt -qq install software-properties-common -y
-add-apt-repository multiverse
+# 添加i386架构
 dpkg --add-architecture i386
-apt -qq update -y
-apt -qq install lib32gcc1 libcurl4-gnutls-dev:i386 lib32stdc++6 lib32z1 -y
+# 强制更新
+apt-get -qq update -y
+# add-apt-repository multiverse
+apt-get -qq install software-properties-common lib32gcc-s1 libcurl4-gnutls-dev:i386 libsdl2-2.0-0:i386 lib32stdc++6 lib32z1 -y
 
 echo "steamCMD以及游戏所需环境安装完成！"
 echo "接下来将安装steamCMD，3秒后开始安装"
@@ -104,7 +104,7 @@ fileDir="/home/steam"
 #新建游戏存放目录
 su - steam -c "mkdir ~/steamcmd"
 #下载文件
-if [ "$(wget -P ~/steamcmd https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz)" ]; then
+if ! [ "$(wget -P $fileDir/steamcmd https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz)" ]; then
     echo "下载steamcmd完成！"
 else
     echo "steamcmd源文件下载失败，请重新运行脚本！"
@@ -112,7 +112,7 @@ else
 fi
 
 # 更改文件拥有者为steam
-chown "$fileDir/steamcmd/steamcmd_linux.tar.gz" steam
+chown steam "$fileDir/steamcmd/steamcmd_linux.tar.gz"
 
 #解压文件
 su - steam -c "tar -zxvf $fileDir/steamcmd/steamcmd_linux.tar.gz -C ~/steamcmd"
@@ -128,8 +128,6 @@ ln -s /home/steam/steamcmd/linux64/steamclient.so /home/steam/.steam/sdk64/
 echo "steamCMD安装完成！"
 echo "接下来将安装幸福工厂，3秒后开始安装"
 sleep 3s
-
-apt -qq install libsdl2-2.0-0:i386 -y
 
 su - steam -c "$fileDir/steamcmd/steamcmd.sh +force_install_dir ~/SatisfactoryDedicatedServer +login anonymous +app_update 1690800 validate +quit"
 
