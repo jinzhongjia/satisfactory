@@ -62,66 +62,27 @@
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/main/satisfactory_c7.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/script/satisfactory_c7.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@main/satisfactory_c7.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@script/satisfactory_c7.sh)
 ```
 
 `centos8`:
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/main/satisfactory_c8.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/script/satisfactory_c8.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@main/satisfactory_c8.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@script/satisfactory_c8.sh)
 ```
 
 `ubuntu` / `debian`:
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/main/satisfactory_d.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/script/satisfactory_d.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@main/satisfactory_d.sh)
-```
-
-##### 版本二
-
-注意：该版本会将信息输出到`/home/satisfactory_output.log`，推荐有使用linux经验的人使用
-
-中间可能出现安装过程中控制台无输出，即无响应情况，这是正常的，请耐心等待安装完成！
-
-想要获取输出日志，可以使用以下命令：
-
-```bash
-cat /home/satisfactory_output.log
-```
-
-`centos7` / `Centos stream`:
-
-```bash
-#国外服务器使用
-bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/dev/satisfactory_c7.sh)
-#国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@dev/satisfactory_c7.sh)
-```
-
-`centos8`:
-
-```bash
-#国外服务器使用
-bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/dev/satisfactory_c8.sh)
-#国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@dev/satisfactory_c8.sh)
-```
-
-`ubuntu` / `debian`:
-
-```bash
-#国外服务器使用
-bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/dev/satisfactory_d.sh)
-#国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@dev/satisfactory_d.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@script/satisfactory_d.sh)
 ```
 
 #### 操作命令
