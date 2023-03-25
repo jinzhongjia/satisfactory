@@ -16,7 +16,10 @@ enviroment_check() {
         echo "curl未安装！"
         exit 0
     fi
-
+    if ! [ "$(command -v bc)" ]; then
+        echo "bc未安装！"
+        exit 0
+    fi
 }
 
 ########
@@ -62,14 +65,28 @@ if [ "$mem" -gt 6291456 ] && [ "$cpuNum" -gt 1 ]; then
     echo "恭喜你！你的配置足够搭建服务器！"
 fi
 
+sleep 3s
+clear
+
 if [ "$mem" -lt 6291456 ]; then
     echo "当前系统总内存小于6G，是否开启虚拟内存？"
     echo "1为是，其他为否"
     read -r tmpNum
     if [ "$tmpNum" == 1 ]; then
+        clear
+
+        echo "请输入你要设置的swap大小，以G为单位"
+        read -r swap_input
+        swap_num=$(printf %.0f "$(echo "$swap_input*1024*1024" | bc -l)")
+
+        if [ "$swap_num" -le 0 ]; then
+            echo "输入的swap大小不是正数,请重新运行脚本！"
+            exit 0
+        fi
+
         echo "接下来将会进行大量文件读写来创建swap分区，服务器响应可能会有卡顿！"
         #使用dd命令创建名为swapfile 的swap交换文件
-        dd if=/dev/zero of=/var/swapfile bs=1024 count=6291456
+        dd if=/dev/zero of=/var/swapfile bs=1024 count="$swap_num"
         #对交换文件格式化并转换为swap分区
         mkswap /var/swapfile
         #添加权限
@@ -79,6 +96,9 @@ if [ "$mem" -lt 6291456 ]; then
         #修改 fstab 配置，设置开机自动挂载该分区
         echo "/var/swapfile   swap  swap  defaults  0  0" >>/etc/fstab
         echo "虚拟内存配置完成！"
+    else
+        echo "选择不配置swap,退出脚本"
+        exit 1
     fi
 fi
 
@@ -126,10 +146,19 @@ mkdir -p /home/steam/.steam/sdk64/
 ln -s /home/steam/steamcmd/linux64/steamclient.so /home/steam/.steam/sdk64/
 
 echo "steamCMD安装完成！"
+echo
+
+echo "请选择安装的分支，实验版本请输入0,普通版本请输入任意字符（如果你不是到它们的区别，请输入非0字符）"
+read -r game_version
+
 echo "接下来将安装幸福工厂，3秒后开始安装"
 sleep 3s
 
-su - steam -c "$fileDir/steamcmd/steamcmd.sh +force_install_dir ~/SatisfactoryDedicatedServer +login anonymous +app_update 1690800 validate +quit"
+if [ "$game_version" == 0 ]; then
+    su - steam -c "$fileDir/steamcmd/steamcmd.sh +force_install_dir ~/SatisfactoryDedicatedServer +login anonymous +app_update 1690800 -beta experimental validate +quit"
+else
+    su - steam -c "$fileDir/steamcmd/steamcmd.sh +force_install_dir ~/SatisfactoryDedicatedServer +login anonymous +app_update 1690800 validate +quit"
+fi
 
 su - steam -c "mkdir -p $fileDir/.config/Epic/FactoryGame/Saved/SaveGames/server"
 
