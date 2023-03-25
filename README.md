@@ -1,27 +1,10 @@
-## ！！！
+# 前言
 
-*写于2022/10/15*
+本脚本是游戏《幸福工厂》的一键安装脚本，安装方式为在宿主机安装server,如果你在寻找容器化安装方法，可以参考这里 [DockerGame](https://github.com/jinzhongjia/DockerGame/blob/main/Satisfactory/README_CN.md)
 
-感谢各位的star，未来一键部署的脚本有想法重新编写，现在已经完成了docker版本的《幸福工厂》服务器部署方式，[地址在这](https://github.com/jinzhongjia/DockerGame/blob/main/Satisfactory/README_CN.md)
+## 幸福工厂自动部署脚本
 
-如果想游玩测试服的话请看experimental分支，正式服主要安装说明在main分支，也就是现在的页面
-
-
-## 前言
-
-顺带各位hxd，如果觉得我的这个脚本使用还可以，能否给个star！😁
-
----
-
-本人搭建的公共幸福工厂服务器，连接地址：satisfactory.jinzh.me
-
----
-
-### 一键安装幸福工厂脚本
-
-本脚本为幸福工厂（satisfactory）私人服务器（ea版本）一键部署脚本！
-
-以下linux系统以经过测试：
+在以下linux发行版经过测试，可正常运行：
 
 * centos7.9
 * centos8
@@ -30,22 +13,14 @@
 * ubuntu18.04
 * Ubuntu 20.04
 
-理论可以在所有linux系统运行！
+**提示**：
 
-**提示**：非国内外大厂售卖的vps自带的系统镜像可能存在不纯净等问题，如果使用脚本后（有时网络问题会导致脚本安装失效，重试即可），发现您的游戏服务运行状态正常，请自行在网络寻找dd脚本对服务器进行重新安装系统操作（更换纯净系统等等操作）
+* 服务器提供商默认的系统镜像可能并不纯净，在遇到部署完成后发现服务运行正常，但无法连接游戏的情况，可以考虑dd系统镜像重新安装
+* 如果在安装过程中失败，请直接重新运行脚本，原因通常为下载游戏资源失败导致
 
-***
+**用户反馈的问题**：
 
-！！！！！
-
-经实际使用腾讯云香港轻量1h1g测试，可以完美运行，不过在刚创建游戏地图时会出现短暂的cpu满载情况......
-
-经实际测试服务器配置使用2h4g完美运行！
-但需要开启swap分区（即windows虚拟内存），脚本已经内置swap创建！
-
-！！！！！
-
-***
+* 华为云部署后连接服务器一直超时，端口已经放开，和客服反馈后仍未解决！
 
 实现功能：
 
@@ -55,9 +30,9 @@
 * 服务器安装  √
 * 创建服务进行启动  √
 
-### 使用方法
+## 使用方法
 
-#### 安装须知
+### 安装须知
 
 |        |                                           系统要求                                              |
 |--------|------------------------------------------------------------------------------------------------|
@@ -75,44 +50,44 @@
 |15000|标识端口   |无法端口转发，如果启动了多个游戏服务，它会自动递增|
 |7777 |游戏端口   |此端口可在服务启动时使用 -Port 参数自由转发，例如 "-Port=10000" 将游戏端口更改为 10000。当该端口被占用时，会递增寻找可用端口|
 
-2. 推荐使用Debian全系、Ubuntu全系、Centos7，不推荐在Centos8上使用脚本，Centos8目前官方已经停止维护
+2. 推荐使用`Debian`全系、`Ubuntu`全系，`Centos stream`，由于`centos`已经停止维护，故不推荐使用
 
-#### 安装过程
+### 安装过程
 
-##### 版本一
+#### 版本一
 
-注意：该版本会将信息直接输出到控制台，如果你对linux使用有所了解，使用该版本更容易安装
+注意：该版本会将信息直接输出到控制台，推荐对linux无使用经验的玩家使用
 
-centos7:
+`centos7` / `Centos stream`:
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c7.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/main/satisfactory_c7.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c7.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@main/satisfactory_c7.sh)
 ```
 
-centos8:
+`centos8`:
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/main/satisfactory_c8.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/main/satisfactory_c8.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_c8.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@main/satisfactory_c8.sh)
 ```
 
-ubuntu / debian:
+`ubuntu` / `debian`:
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/main/satisfactory_d.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/main/satisfactory_d.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfactory_d.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@main/satisfactory_d.sh)
 ```
 
 ##### 版本二
 
-注意：该版本会将信息输出到`/home/satisfactory_output.log`，如果你未使用过linux或者只是想安装一个游戏服务器来玩玩，请使用该版本！！！
+注意：该版本会将信息输出到`/home/satisfactory_output.log`，推荐有使用linux经验的人使用
 
 中间可能出现安装过程中控制台无输出，即无响应情况，这是正常的，请耐心等待安装完成！
 
@@ -122,37 +97,37 @@ bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@main/satisfa
 cat /home/satisfactory_output.log
 ```
 
-centos7:
+`centos7` / `Centos stream`:
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/dev/satisfactory_c7.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/dev/satisfactory_c7.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@dev/satisfactory_c7.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@dev/satisfactory_c7.sh)
 ```
 
-centos8:
+`centos8`:
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/dev/satisfactory_c8.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/dev/satisfactory_c8.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@dev/satisfactory_c8.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@dev/satisfactory_c8.sh)
 ```
 
-ubuntu / debian:
+`ubuntu` / `debian`:
 
 ```bash
 #国外服务器使用
-bash <(wget -qO- https://github.com/yingyi666/satisfactory/raw/dev/satisfactory_d.sh)
+bash <(wget -qO- https://github.com/jinzhongjia/satisfactory/raw/dev/satisfactory_d.sh)
 #国内服务器使用
-bash <(wget -qO- https://cdn.jsdelivr.net/gh/yingyi666/satisfactory@dev/satisfactory_d.sh)
+bash <(wget -qO- https://cdn.jsdelivr.net/gh/jinzhongjia/satisfactory@dev/satisfactory_d.sh)
 ```
-
 
 #### 操作命令
 
 ```bash
+# 如果是在普通用户下执行，请使用sudo
 systemctl start satisfactory
 #开启游戏服务
 systemctl restart satisfactory
@@ -167,7 +142,7 @@ systemctl status satisfactory
 
 脚本会在系统中创建一个steam账户用于安装steamcmd和satisfactory完成后的服务器运行（root账户无法运行该服务）！
 
-steamcmd和satisfactory存放位置：`/home/steam/`
+`steamcmd`和`satisfactory`存放位置：`/home/steam/`
 
 #### 存档位置
 
@@ -180,6 +155,7 @@ steamcmd和satisfactory存放位置：`/home/steam/`
 如果想要手动更新游戏版本，只需要对游戏服务进行重启即可!
 
 ```bash
+# 如果是在普通用户下执行，请使用sudo
 systemctl restart satisfactory
 #重启游戏服务，用于进行游戏更新
 ```
@@ -187,9 +163,18 @@ systemctl restart satisfactory
 #### 脚本完整删除方法
 
 1. 删除/home/steam文件夹
+
+```bash
+rm -rf /home/steam
+```
+
 2. 删除steam用户
 
-#### 官方文档
+```bash
+userdel –r steam
+```
+
+#### 相关资料
 
 官网：[www.satisfactorygame.com/](https://www.satisfactorygame.com)
 
