@@ -46,7 +46,7 @@ cpuNum=$(grep -c "model name" /proc/cpuinfo)
 #获取外网ip地址
 ip=$(curl -s ifconfig.me)
 # 对内存大小进行判断
-if [ "$mem" -gt 6291456 ]; then
+if [ "$mem" -gt 12582912 ]; then
     echo -e "\033[;32m物理内存大小：$pyhMem\033[0m"
     echo -e "\033[;32m虚拟内存大小：$virMem\033[0m"
 else
@@ -61,14 +61,14 @@ else
     exit 0
 fi
 
-if [ "$mem" -gt 6291456 ] && [ "$cpuNum" -gt 1 ]; then
+if [ "$mem" -gt 12582912 ] && [ "$cpuNum" -gt 1 ]; then
     echo "恭喜你！你的配置足够搭建服务器！"
 fi
 
 sleep 3s
 clear
 
-if [ "$mem" -lt 6291456 ]; then
+if [ "$mem" -lt 12582912 ]; then
     echo "当前系统总内存小于6G，是否开启虚拟内存？"
     echo "1为是，其他为否"
     read -r tmpNum
