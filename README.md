@@ -110,6 +110,17 @@ systemctl status satisfactory
 
 路径：`/home/steam/.config/Epic/FactoryGame/Saved/SaveGames/server`
 
+#### 更改游戏人数
+
+配置路径：`/home/steam/FactoryGame/Saved/Config/LinuxServer/Game.ini`
+
+内容应为：下面的8为最大游戏人数
+
+```ini
+[/Script/Engine.GameSession]
+MaxPlayers=8
+```
+
 #### 游戏更新
 
 本脚本已经内置了游戏服务在每晚4点重新启动，并进行检测更新！
