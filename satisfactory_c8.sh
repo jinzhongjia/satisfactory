@@ -69,13 +69,13 @@ sleep 3s
 clear
 
 if [ "$mem" -lt 12582912 ]; then
-    echo "当前系统总内存小于6G，是否开启虚拟内存？"
+    echo "当前系统总内存小于12G，是否开启虚拟内存？"
     echo "1为是，其他为否"
     read -r tmpNum
     if [ "$tmpNum" == 1 ]; then
         clear
 
-        echo "请输入你要设置的swap大小，以G为单位"
+        echo "请输入你要设置的swap大小，以G为单位，推荐总内存至少为12G"
         read -r swap_input
         swap_num=$(printf %.0f "$(echo "$swap_input*1024*1024" | bc -l)")
 
@@ -144,7 +144,7 @@ ln -s /home/steam/steamcmd/linux64/steamclient.so /home/steam/.steam/sdk64/
 echo "steamCMD安装完成！"
 echo
 
-echo "请选择安装的分支，实验版本请输入0,普通版本请输入任意字符（如果你不是到它们的区别，请输入非0字符）"
+echo "请选择安装的分支，实验版本请输入0,普通版本请输入任意字符（如果你不知道它们的区别，请输入非0字符）"
 read -r game_version
 
 echo "接下来将安装幸福工厂，3秒后开始安装"
