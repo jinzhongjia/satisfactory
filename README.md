@@ -157,6 +157,6 @@ MOD平台：[ficsit.app](https://ficsit.app)
 
 官方问题反馈论坛：[questions.satisfactorygame.com](https://questions.satisfactorygame.com/)
 
-官方维基：[satisfactory.gamepedia.com/Satisfactory_Wiki](https://satisfactory.gamepedia.com/Satisfactory_Wiki)
+官方维基：[Satisfactory_Wiki](https://satisfactory.wiki.gg/wiki/Satisfactory_Wiki)
 
-专属服务器维基：[Dedicated_servers](https://satisfactory.fandom.com/wiki/Dedicated_servers)
+专属服务器维基：[Dedicated_servers](https://satisfactory.wiki.gg/wiki/Dedicated_servers)
