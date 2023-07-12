@@ -210,4 +210,4 @@ echo -e "本机ip为：""\033[;32m$ip\033[0m"
 echo -e "\033[;32m启动游戏：systemctl start satisfactory.service\033[0m"
 echo -e "\033[;32m重启游戏：systemctl restart satisfactory.service\033[0m"
 echo -e "\033[;32m关闭游戏：systemctl stop satisfactory.service\033[0m"
-echo "0 4 * * * systemctl restart satisfactory.service" >>/etc/crontab
+echo "0 4    * * *    root    systemctl restart satisfactory.service" >>/etc/crontab
